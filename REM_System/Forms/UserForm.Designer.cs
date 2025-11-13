@@ -30,12 +30,14 @@ namespace REM_System.Forms
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblUserRole = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(177, 112);
+            this.txtUsername.Location = new System.Drawing.Point(177, 317);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(275, 31);
             this.txtUsername.TabIndex = 0;
@@ -43,7 +45,7 @@ namespace REM_System.Forms
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(177, 153);
+            this.txtEmail.Location = new System.Drawing.Point(177, 361);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(275, 31);
             this.txtEmail.TabIndex = 1;
@@ -51,7 +53,7 @@ namespace REM_System.Forms
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(177, 282);
+            this.txtPassword.Location = new System.Drawing.Point(177, 499);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(275, 31);
             this.txtPassword.TabIndex = 4;
@@ -66,7 +68,7 @@ namespace REM_System.Forms
             this.cmbUserRole.Items.AddRange(new object[] {
             "Buyer",
             "Seller"});
-            this.cmbUserRole.Location = new System.Drawing.Point(177, 194);
+            this.cmbUserRole.Location = new System.Drawing.Point(177, 405);
             this.cmbUserRole.Name = "cmbUserRole";
             this.cmbUserRole.Size = new System.Drawing.Size(275, 36);
             this.cmbUserRole.TabIndex = 2;
@@ -76,7 +78,7 @@ namespace REM_System.Forms
             this.chkChangePassword.AutoSize = true;
             this.chkChangePassword.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.chkChangePassword.Location = new System.Drawing.Point(177, 240);
+            this.chkChangePassword.Location = new System.Drawing.Point(177, 454);
             this.chkChangePassword.Name = "chkChangePassword";
             this.chkChangePassword.Size = new System.Drawing.Size(175, 32);
             this.chkChangePassword.TabIndex = 3;
@@ -91,7 +93,7 @@ namespace REM_System.Forms
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(177, 323);
+            this.btnSave.Location = new System.Drawing.Point(177, 543);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(129, 30);
             this.btnSave.TabIndex = 5;
@@ -107,7 +109,7 @@ namespace REM_System.Forms
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.btnCancel.Location = new System.Drawing.Point(314, 323);
+            this.btnCancel.Location = new System.Drawing.Point(314, 543);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(129, 30);
             this.btnCancel.TabIndex = 6;
@@ -120,7 +122,7 @@ namespace REM_System.Forms
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblStatus.Location = new System.Drawing.Point(65, 352);
+            this.lblStatus.Location = new System.Drawing.Point(65, 569);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(31, 23);
             this.lblStatus.TabIndex = 7;
@@ -129,11 +131,11 @@ namespace REM_System.Forms
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
-            this.lblTitle.Location = new System.Drawing.Point(33, 38);
+            this.lblTitle.Location = new System.Drawing.Point(172, 208);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(164, 37);
+            this.lblTitle.Size = new System.Drawing.Size(187, 42);
             this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "Add New User";
             // 
@@ -142,7 +144,7 @@ namespace REM_System.Forms
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.lblUsername.Location = new System.Drawing.Point(65, 114);
+            this.lblUsername.Location = new System.Drawing.Point(65, 319);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(106, 28);
             this.lblUsername.TabIndex = 9;
@@ -153,7 +155,7 @@ namespace REM_System.Forms
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.lblEmail.Location = new System.Drawing.Point(65, 154);
+            this.lblEmail.Location = new System.Drawing.Point(65, 362);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(67, 28);
             this.lblEmail.TabIndex = 10;
@@ -164,7 +166,7 @@ namespace REM_System.Forms
             this.lblUserRole.AutoSize = true;
             this.lblUserRole.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.lblUserRole.Location = new System.Drawing.Point(65, 196);
+            this.lblUserRole.Location = new System.Drawing.Point(65, 407);
             this.lblUserRole.Name = "lblUserRole";
             this.lblUserRole.Size = new System.Drawing.Size(58, 28);
             this.lblUserRole.TabIndex = 11;
@@ -175,19 +177,31 @@ namespace REM_System.Forms
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.lblPassword.Location = new System.Drawing.Point(65, 284);
+            this.lblPassword.Location = new System.Drawing.Point(65, 501);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(100, 28);
             this.lblPassword.TabIndex = 12;
             this.lblPassword.Text = "Password *";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::REM_System.Properties.Resources.RealEstateLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(192, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 153);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(545, 434);
+            this.ClientSize = new System.Drawing.Size(545, 655);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserRole);
             this.Controls.Add(this.lblEmail);
@@ -205,12 +219,15 @@ namespace REM_System.Forms
             this.MaximizeBox = false;
             this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -134,10 +134,6 @@ namespace REM_System.Forms
             var propertyType = Convert.ToString(cmbPropertyType.SelectedItem);
             var price = numPrice.Value;
 
-            if (cmbStatus.Text == null)
-            {
-                cmbStatus.Text = "Available";
-            }
             if (string.IsNullOrWhiteSpace(title))
             {
                 lblStatus.Text = "Please enter a title.";

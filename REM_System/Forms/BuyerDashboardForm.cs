@@ -47,7 +47,7 @@ namespace REM_System.Forms
             lblWelcome.Text = $"Welcome, {_username}! Browse Available Properties";
             cmbStatusFilter.SelectedIndexChanged += (s, e) => LoadProperties();
             btnRefresh.Click += (s, e) => LoadProperties();
-            btnLogout.Click += (s, e) => DialogResult = DialogResult;
+            btnLogout.Click += (s, e) => DialogResult = DialogResult.OK;
             btnSearch.Click += (s, e) => LoadProperties();
             txtSearch.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) LoadProperties(); };
             /*btnEditProfile.Click += (s, e) => OnEditProfileClick();*/
@@ -60,7 +60,7 @@ namespace REM_System.Forms
             // Delay loading properties until form is shown
             this.Shown += (s, e) => LoadProperties();
         }
-        
+
         /*private void OnEditProfileClick()
         {
             if (_userId == 0)
@@ -68,7 +68,7 @@ namespace REM_System.Forms
                 MessageBox.Show("Unable to load user information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             using (var form = new EditProfileForm(_userId))
             {
                 if (form.ShowDialog(this) == DialogResult.OK && form.ProfileUpdated)
