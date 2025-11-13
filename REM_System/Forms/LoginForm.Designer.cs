@@ -62,10 +62,10 @@ namespace REM_System.Forms
             // 
             this.txtPassword.BackColor = System.Drawing.Color.White;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(622, 328);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(304, 24);
+            this.txtPassword.Size = new System.Drawing.Size(304, 18);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -171,7 +171,7 @@ namespace REM_System.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(619, 269);
+            this.label4.Location = new System.Drawing.Point(619, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(310, 13);
             this.label4.TabIndex = 12;

@@ -135,6 +135,7 @@ namespace REM_System.Forms
                     {
                         UserSaved = true;
                         DialogResult = DialogResult.OK;
+                        MessageBox.Show(cmbUserRole.SelectedItem +" created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {

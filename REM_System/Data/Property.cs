@@ -8,7 +8,7 @@ namespace REM_System.Data
         public int SellerId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public string PropertyType { get; set; } = string.Empty; // "RealEstate" or "Product"
+        public string PropertyType { get; set; } = string.Empty; // "RealEstate"
         public string Address { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public int? Bedrooms { get; set; }
