@@ -606,6 +606,7 @@ namespace REM_System.Forms
 
         private void OnEditPropertyClick(object sender, EventArgs e)
         {
+            
             var propertyViewModel = GetSelectedProperty();
             if (propertyViewModel == null)
             {

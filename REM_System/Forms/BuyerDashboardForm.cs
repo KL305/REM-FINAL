@@ -47,7 +47,7 @@ namespace REM_System.Forms
             lblWelcome.Text = $"Welcome, {_username}! Browse Available Properties";
             cmbStatusFilter.SelectedIndexChanged += (s, e) => LoadProperties();
             btnRefresh.Click += (s, e) => LoadProperties();
-            btnLogout.Click += (s, e) => DialogResult = DialogResult.OK;
+            btnLogout.Click += (s, e) => DialogResult = DialogResult;
             btnSearch.Click += (s, e) => LoadProperties();
             txtSearch.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) LoadProperties(); };
             /*btnEditProfile.Click += (s, e) => OnEditProfileClick();*/

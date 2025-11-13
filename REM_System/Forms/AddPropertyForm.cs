@@ -38,7 +38,7 @@ namespace REM_System.Forms
 
         public bool PropertyAdded { get; private set; } = false;
 
-        public AddPropertyForm(int sellerId, Property propertyToEdit = null, bool isAdminMode = false)
+        public AddPropertyForm(int sellerId, Property propertyToEdit = null, bool isAdminMode = true)
         {
             _sellerId = sellerId;
             _isAdminMode = isAdminMode;
@@ -49,20 +49,23 @@ namespace REM_System.Forms
             Text = _propertyToEdit == null ? "Add Property" : "Edit Property";
             lblTitle.Text = _propertyToEdit == null ? "Add New Property" : "Edit Property";
             btnSave.Text = _propertyToEdit == null ? "Add Property" : "Update Property";
-            
+
             // Show/hide seller combobox based on admin mode
-            if (_isAdminMode)
+            if (lblTitle.Text.Equals("Add New Property"))
             {
-                lblSeller.Visible = true;
-                cmbSeller.Visible = true;
-                LoadSellers();
-                ClientSize = new Size(550, 600);
+                if (_isAdminMode)
+                {
+                    cmbStatus.Items.AddRange(new string[] { "Available" });
+                    lblSeller.Visible = true;
+                    cmbSeller.Visible = true;
+                    LoadSellers();
+                }
             }
             else
             {
                 lblSeller.Visible = false;
                 cmbSeller.Visible = false;
-                ClientSize = new Size(550, 560);
+                cmbStatus.Items.AddRange(new string[] { "Available", "Under Contract", "Sold" });
             }
             
             if (propertyToEdit != null)
@@ -131,6 +134,10 @@ namespace REM_System.Forms
             var propertyType = Convert.ToString(cmbPropertyType.SelectedItem);
             var price = numPrice.Value;
 
+            if (cmbStatus.Text == null)
+            {
+                cmbStatus.Text = "Available";
+            }
             if (string.IsNullOrWhiteSpace(title))
             {
                 lblStatus.Text = "Please enter a title.";
@@ -207,7 +214,7 @@ namespace REM_System.Forms
                         Bedrooms = numBedrooms.Value > 0 ? (int?)numBedrooms.Value : null,
                         Bathrooms = numBathrooms.Value > 0 ? (int?)numBathrooms.Value : null,
                         Area = numArea.Value > 0 ? (decimal?)numArea.Value : null,
-                        Status = Convert.ToString(cmbStatus.SelectedItem)
+                        Status = cmbStatus.SelectedItem != null ? Convert.ToString(cmbStatus.SelectedItem) : "Available",
                     };
 
                     var propertyId = repo.CreateProperty(property);
@@ -231,6 +238,11 @@ namespace REM_System.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

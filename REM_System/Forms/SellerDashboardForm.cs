@@ -14,7 +14,6 @@ namespace REM_System.Forms
         private Button btnEditProperty;
         private Button btnDeleteProperty;
         private Button btnRefresh;
-        private Button btnLogout;
         private Label lblWelcome;
         private readonly int _sellerId;
         private readonly string _username;
@@ -55,11 +54,6 @@ namespace REM_System.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadProperties();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
         }
 
         private void LoadProperties()

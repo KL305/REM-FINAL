@@ -149,14 +149,11 @@ namespace REM_System.Forms
             this.cmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbStatus.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Available",
-            "Sold",
-            "Pending"});
             this.cmbStatus.Location = new System.Drawing.Point(572, 376);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(318, 34);
             this.cmbStatus.TabIndex = 20;
+            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // btnSave
             // 
@@ -339,7 +336,7 @@ namespace REM_System.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1034, 534);
+            this.ClientSize = new System.Drawing.Size(1034, 541);
             this.ControlBox = false;
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnCancel);
@@ -368,7 +365,6 @@ namespace REM_System.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "AddPropertyForm";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBedrooms)).EndInit();
