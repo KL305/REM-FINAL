@@ -80,12 +80,21 @@
     <EmbeddedResource Include="Forms\BuyerDashboardForm.resx">
       <DependentUpon>BuyerDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Forms\InquireForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InquireForm.Designer.cs">
+      <DependentUpon>InquireForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\InquireForm.resx">
+      <DependentUpon>InquireForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LoginBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackDrop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -197,6 +197,11 @@ namespace REM_System.Forms
                 return;
             }
 
+            
+            if (dgvProperties.SelectedRows.Equals("Under Contract"))
+            {
+                MessageBox.Show("Cannot delete a property that is under contract.", "Delete Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             var result = MessageBox.Show(
                 $"Are you sure you want to delete '{property.Title}'?",
                 "Confirm Delete",

@@ -58,6 +58,7 @@ namespace REM_System.Forms
                     cmbStatus.Items.AddRange(new string[] { "Available" });
                     lblSeller.Visible = true;
                     cmbSeller.Visible = true;
+                    cmbSeller.Items.Add("ww");
                     LoadSellers();
                 }
             }
@@ -65,6 +66,8 @@ namespace REM_System.Forms
             {
                 lblSeller.Visible = false;
                 cmbSeller.Visible = false;
+                cmbSeller.SelectedItem = _sellerId;
+                LoadSellers();
                 cmbStatus.Items.AddRange(new string[] { "Available", "Under Contract", "Sold" });
             }
             

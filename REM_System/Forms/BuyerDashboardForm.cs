@@ -14,7 +14,7 @@ namespace REM_System.Forms
         private Button btnRefresh;
         private Button btnLogout;
         private ComboBox cmbStatusFilter;
-        private Label lblWelcome;
+        public Label lblWelcome;
         private Label lblStatus;
         private Label lblFilter;
         private TextBox txtSearch;
@@ -335,6 +335,33 @@ namespace REM_System.Forms
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error in ConfigureColumns: {ex.Message}");
+            }
+        }
+
+        private void dgvProperties_DoubleClick(object sender, EventArgs e)
+        {
+            string message = "Do you want to submit an inquiry about this property?";
+            string caption = "Real Estate Inquiry";
+
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Question;
+
+            DialogResult result = MessageBox.Show(message, caption, buttons, icon);
+
+            if (result == DialogResult.Yes)
+            {
+                UserViewModel userViewModel = new UserRepository().GetUserById(_userId);
+
+                InquireForm inquireForm = new InquireForm();
+                inquireForm.lblSellerName.Text = dgvProperties.CurrentRow.Cells["SellerName"].Value.ToString();
+                inquireForm.lblRETitle.Text = dgvProperties.CurrentRow.Cells["Title"].Value.ToString();
+                inquireForm.txtEmailAddress.Text = userViewModel.Email;
+                inquireForm.lblBuyerName.Text = userViewModel.Username;
+                inquireForm.ShowDialog();
+            }
+            else
+            {
+                result = DialogResult.No;
             }
         }
     }

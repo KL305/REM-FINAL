@@ -15,3 +15,4 @@ C:\Users\Nigel Paul Matunan\source\repos\REM_System\obj\Debug\REM_System.Forms.R
 C:\Users\Nigel Paul Matunan\source\repos\REM_System\obj\Debug\REM_System.Forms.SellerDashboardForm.resources
 C:\Users\Nigel Paul Matunan\source\repos\REM_System\obj\Debug\REM_System.Forms.UserForm.resources
 C:\Users\Nigel Paul Matunan\source\repos\REM_System\obj\Debug\REM_System.exe.config
+C:\Users\Nigel Paul Matunan\source\repos\REM_System\obj\Debug\REM_System.Forms.InquireForm.resources
