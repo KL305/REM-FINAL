@@ -60,7 +60,7 @@ namespace REM_System.Forms
                     MessageBox.Show("Email sent successfully!");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error: Failed to send email. Make sure you input a correct email address (e.g. email@gmail.com)");
             }
