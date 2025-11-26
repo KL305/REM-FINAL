@@ -367,7 +367,77 @@ SELECT CAST(SCOPE_IDENTITY() as int);", connection))
                 throw;
             }
         }
+
+        public bool DeleteAllUsers()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(Database.ConnectionString))
+                using (var command = new SqlCommand("DELETE FROM [dbo].[Users]", connection))
+                {
+                    connection.Open();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected >= 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in DeleteAllUsers: {ex.Message}");
+                throw;
+            }
+        }
+
+        public bool DeleteAllUsersExceptAdmin()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(Database.ConnectionString))
+                using (var command = new SqlCommand("DELETE FROM [dbo].[Users] WHERE UserRole <> 'Admin'", connection))
+                {
+                    connection.Open();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected >= 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in DeleteAllUsersExceptAdmin: {ex.Message}");
+                throw;
+            }
+        }
+
+        public bool DeleteAllUsersExceptFirst()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(Database.ConnectionString))
+                {
+                    connection.Open();
+                    // Get the lowest UserId
+                    int firstUserId = 0;
+                    using (var getIdCmd = new SqlCommand("SELECT TOP 1 UserId FROM [dbo].[Users] ORDER BY UserId ASC", connection))
+                    {
+                        var result = getIdCmd.ExecuteScalar();
+                        if (result != null && int.TryParse(result.ToString(), out int id))
+                            firstUserId = id;
+                    }
+                    if (firstUserId == 0)
+                        return false; // No users to keep
+
+                    // Delete all except the first
+                    using (var deleteCmd = new SqlCommand("DELETE FROM [dbo].[Users] WHERE UserId <> @FirstUserId", connection))
+                    {
+                        deleteCmd.Parameters.AddWithValue("@FirstUserId", firstUserId);
+                        var rowsAffected = deleteCmd.ExecuteNonQuery();
+                        return rowsAffected >= 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in DeleteAllUsersExceptFirst: {ex.Message}");
+                throw;
+            }
+        }
     }
 }
-
-

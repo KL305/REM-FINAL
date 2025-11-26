@@ -1,4 +1,4 @@
-using REM_System.Data;
+﻿using REM_System.Data;
 using System;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -108,7 +108,7 @@ namespace REM_System.Forms
                         
                     }
 
-                    lblStatus.Text = $"Total Properties: {properties.Count}";
+                    lblStatus.Text = $"🏠︎ Total Properties: {properties.Count}";
                     lblStatus.ForeColor = Color.Green;
                 }
                 else
@@ -314,6 +314,11 @@ namespace REM_System.Forms
             {
                 System.Diagnostics.Debug.WriteLine($"Error in ConfigureColumns: {ex.Message}");
             }
+        }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

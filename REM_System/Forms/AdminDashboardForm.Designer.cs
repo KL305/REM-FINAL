@@ -17,18 +17,18 @@ namespace REM_System.Forms
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabUsers = new System.Windows.Forms.TabPage();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
+            this.lblUsersStatus = new System.Windows.Forms.Label();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnRefreshUsers = new System.Windows.Forms.Button();
-            this.lblUsersStatus = new System.Windows.Forms.Label();
             this.tabProperties = new System.Windows.Forms.TabPage();
             this.dgvProperties = new System.Windows.Forms.DataGridView();
             this.btnAddProperty = new System.Windows.Forms.Button();
@@ -41,6 +41,8 @@ namespace REM_System.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeleteAllProperties = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -58,7 +60,7 @@ namespace REM_System.Forms
             this.tabControl.Controls.Add(this.tabUsers);
             this.tabControl.Controls.Add(this.tabProperties);
             this.tabControl.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(41, 218);
+            this.tabControl.Location = new System.Drawing.Point(45, 225);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(942, 475);
@@ -67,12 +69,13 @@ namespace REM_System.Forms
             // tabUsers
             // 
             this.tabUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.tabUsers.Controls.Add(this.btnDelete);
             this.tabUsers.Controls.Add(this.dgvUsers);
             this.tabUsers.Controls.Add(this.btnAddUser);
             this.tabUsers.Controls.Add(this.btnEditUser);
+            this.tabUsers.Controls.Add(this.lblUsersStatus);
             this.tabUsers.Controls.Add(this.btnDeleteUser);
             this.tabUsers.Controls.Add(this.btnRefreshUsers);
-            this.tabUsers.Controls.Add(this.lblUsersStatus);
             this.tabUsers.Location = new System.Drawing.Point(4, 35);
             this.tabUsers.Name = "tabUsers";
             this.tabUsers.Padding = new System.Windows.Forms.Padding(3);
@@ -85,18 +88,18 @@ namespace REM_System.Forms
             // 
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
             this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Poppins Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.dgvUsers.ColumnHeadersHeight = 35;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Location = new System.Drawing.Point(17, 52);
@@ -141,6 +144,18 @@ namespace REM_System.Forms
             this.btnEditUser.UseVisualStyleBackColor = false;
             this.btnEditUser.Click += new System.EventHandler(this.OnEditUserClick);
             // 
+            // lblUsersStatus
+            // 
+            this.lblUsersStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsersStatus.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsersStatus.ForeColor = System.Drawing.Color.Green;
+            this.lblUsersStatus.Location = new System.Drawing.Point(586, 13);
+            this.lblUsersStatus.Name = "lblUsersStatus";
+            this.lblUsersStatus.Size = new System.Drawing.Size(330, 30);
+            this.lblUsersStatus.TabIndex = 5;
+            this.lblUsersStatus.Text = "---";
+            this.lblUsersStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // btnDeleteUser
             // 
             this.btnDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
@@ -172,20 +187,10 @@ namespace REM_System.Forms
             this.btnRefreshUsers.Text = "🔄 Refresh";
             this.btnRefreshUsers.UseVisualStyleBackColor = false;
             // 
-            // lblUsersStatus
-            // 
-            this.lblUsersStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUsersStatus.AutoSize = true;
-            this.lblUsersStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUsersStatus.ForeColor = System.Drawing.Color.Green;
-            this.lblUsersStatus.Location = new System.Drawing.Point(17, 438);
-            this.lblUsersStatus.Name = "lblUsersStatus";
-            this.lblUsersStatus.Size = new System.Drawing.Size(0, 15);
-            this.lblUsersStatus.TabIndex = 5;
-            // 
             // tabProperties
             // 
             this.tabProperties.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.tabProperties.Controls.Add(this.btnDeleteAllProperties);
             this.tabProperties.Controls.Add(this.dgvProperties);
             this.tabProperties.Controls.Add(this.btnAddProperty);
             this.tabProperties.Controls.Add(this.btnEditProperty);
@@ -204,18 +209,18 @@ namespace REM_System.Forms
             // 
             this.dgvProperties.AllowUserToAddRows = false;
             this.dgvProperties.AllowUserToResizeRows = false;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProperties.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProperties.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
             this.dgvProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProperties.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProperties.BackgroundColor = System.Drawing.Color.White;
             this.dgvProperties.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Poppins Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
-            this.dgvProperties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
+            this.dgvProperties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
             this.dgvProperties.ColumnHeadersHeight = 35;
             this.dgvProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProperties.Location = new System.Drawing.Point(17, 52);
@@ -293,14 +298,15 @@ namespace REM_System.Forms
             // 
             // lblPropertiesStatus
             // 
-            this.lblPropertiesStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPropertiesStatus.AutoSize = true;
-            this.lblPropertiesStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblPropertiesStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblPropertiesStatus.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPropertiesStatus.ForeColor = System.Drawing.Color.Green;
-            this.lblPropertiesStatus.Location = new System.Drawing.Point(17, 438);
+            this.lblPropertiesStatus.Location = new System.Drawing.Point(586, 13);
             this.lblPropertiesStatus.Name = "lblPropertiesStatus";
-            this.lblPropertiesStatus.Size = new System.Drawing.Size(0, 15);
+            this.lblPropertiesStatus.Size = new System.Drawing.Size(330, 30);
             this.lblPropertiesStatus.TabIndex = 5;
+            this.lblPropertiesStatus.Text = "---";
+            this.lblPropertiesStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnLogout
             // 
@@ -364,6 +370,34 @@ namespace REM_System.Forms
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(477, 13);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(103, 30);
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.Text = "⚠︎ Reset";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnDeleteAllProperties
+            // 
+            this.btnDeleteAllProperties.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDeleteAllProperties.FlatAppearance.BorderSize = 0;
+            this.btnDeleteAllProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAllProperties.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAllProperties.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAllProperties.Location = new System.Drawing.Point(477, 13);
+            this.btnDeleteAllProperties.Name = "btnDeleteAllProperties";
+            this.btnDeleteAllProperties.Size = new System.Drawing.Size(103, 30);
+            this.btnDeleteAllProperties.TabIndex = 6;
+            this.btnDeleteAllProperties.Text = "⚠︎ Reset";
+            this.btnDeleteAllProperties.UseVisualStyleBackColor = false;
+            // 
             // AdminDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,10 +414,8 @@ namespace REM_System.Forms
             this.Text = "Admin Dashboard";
             this.tabControl.ResumeLayout(false);
             this.tabUsers.ResumeLayout(false);
-            this.tabUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.tabProperties.ResumeLayout(false);
-            this.tabProperties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProperties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -398,6 +430,8 @@ namespace REM_System.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeleteAllProperties;
     }
 }
 

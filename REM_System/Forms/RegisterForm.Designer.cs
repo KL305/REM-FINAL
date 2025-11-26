@@ -93,6 +93,7 @@ namespace REM_System.Forms
             this.cmbRole.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Items.AddRange(new object[] {
+            "Admin",
             "Buyer",
             "Seller"});
             this.cmbRole.Location = new System.Drawing.Point(621, 451);

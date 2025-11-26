@@ -1,4 +1,4 @@
-using REM_System.Data;
+﻿using REM_System.Data;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -41,18 +41,18 @@ namespace REM_System.Forms
             btnLogout.Click += (s, e) => DialogResult = DialogResult.OK;
             btnRefreshUsers.Click += (s, e) => LoadUsers();
             btnRefreshProperties.Click += (s, e) => LoadProperties();
-            
-            
+            btnDelete.Click += OnResetUsersClick;
+            btnDeleteAllProperties.Click += OnResetPropertiesClick;
+
             this.Load += (s, e) =>
             {
                 _userRepo = new UserRepository();
                 _propertyRepo = new PropertyRepository();
             };
-            
+
             // Delay loading data
             this.Shown += (s, e) =>
             {
-                
                 this.BeginInvoke(new Action(() =>
                 {
                     try
@@ -99,8 +99,8 @@ namespace REM_System.Forms
                     allUsers = new List<UserViewModel>();
                 }
 
-                // Filter to show only Buyers and Sellers, exclude Admins
-                var users = allUsers.Where(u => u.UserRole == "Buyer" || u.UserRole == "Seller").ToList();
+                // Show all users, including Admins
+                var users = allUsers; // Remove any filtering by role
 
                 if (users.Count > 0)
                 {
@@ -143,7 +143,7 @@ namespace REM_System.Forms
                             // Will be configured on DataBindingComplete event
                         }
 
-                        lblUsersStatus.Text = $"Total Users: {users.Count}";
+                        lblUsersStatus.Text = $"👥 Total Users: {users.Count}";
                         lblUsersStatus.ForeColor = Color.Green;
                     }
                     catch (Exception ex)
@@ -262,7 +262,7 @@ namespace REM_System.Forms
                             // Will be configured on DataBindingComplete event
                         }
 
-                        lblPropertiesStatus.Text = $"Total Properties: {properties.Count}";
+                        lblPropertiesStatus.Text = $"🏠︎ Total Properties: {properties.Count}";
                         lblPropertiesStatus.ForeColor = Color.Green;
                     }
                     catch (Exception ex)
@@ -553,6 +553,13 @@ namespace REM_System.Forms
                 return;
             }
 
+            // Prevent deletion of admin users
+            if (user.UserRole == "Admin")
+            {
+                MessageBox.Show("Admin accounts cannot be deleted.", "Operation Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show(
                 $"Are you sure you want to delete user '{user.Username}'?",
                 "Confirm Delete",
@@ -583,6 +590,38 @@ namespace REM_System.Forms
             }
         }
 
+        private void OnResetUsersClick(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to delete ALL users except the first? This action cannot be undone.",
+                "Confirm Reset",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (_userRepo.DeleteAllUsersExceptFirst())
+                    {
+                        LoadUsers();
+                        lblUsersStatus.Text = "All users deleted successfully!";
+                        lblUsersStatus.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        lblUsersStatus.Text = "Failed to delete users.";
+                        lblUsersStatus.ForeColor = Color.Firebrick;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblUsersStatus.Text = $"Error deleting users: {ex.Message}";
+                    lblUsersStatus.ForeColor = Color.Firebrick;
+                }
+            }
+        }
+
         private void OnAddPropertyClick(object sender, EventArgs e)
         {
             // Get first seller ID for default (admin mode)
@@ -606,7 +645,7 @@ namespace REM_System.Forms
 
         private void OnEditPropertyClick(object sender, EventArgs e)
         {
-            
+
             var propertyViewModel = GetSelectedProperty();
             if (propertyViewModel == null)
             {
@@ -666,6 +705,38 @@ namespace REM_System.Forms
                 catch (Exception ex)
                 {
                     lblPropertiesStatus.Text = $"Error deleting property: {ex.Message}";
+                    lblPropertiesStatus.ForeColor = Color.Firebrick;
+                }
+            }
+        }
+
+        private void OnResetPropertiesClick(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to delete ALL properties? This action cannot be undone.",
+                "Confirm Reset",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (_propertyRepo.DeleteAllProperties())
+                    {
+                        LoadProperties();
+                        lblPropertiesStatus.Text = "All properties deleted successfully!";
+                        lblPropertiesStatus.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        lblPropertiesStatus.Text = "Failed to delete properties.";
+                        lblPropertiesStatus.ForeColor = Color.Firebrick;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblPropertiesStatus.Text = $"Error deleting all properties: {ex.Message}";
                     lblPropertiesStatus.ForeColor = Color.Firebrick;
                 }
             }

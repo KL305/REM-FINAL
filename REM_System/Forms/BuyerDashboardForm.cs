@@ -1,4 +1,4 @@
-using REM_System.Data;
+﻿using REM_System.Data;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -183,7 +183,7 @@ namespace REM_System.Forms
                             // Will be configured on DataBindingComplete event
                         }
 
-                        string statusText = $"Total Properties: {properties.Count}";
+                        string statusText = $"🏠︎ Total Properties: {properties.Count}";
                         if (txtSearch != null && !string.IsNullOrWhiteSpace(txtSearch.Text))
                         {
                             statusText += $" (filtered by search)";

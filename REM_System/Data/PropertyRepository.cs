@@ -312,6 +312,25 @@ namespace REM_System.Data
                 throw;
             }
         }
+
+        public bool DeleteAllProperties()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(Database.ConnectionString))
+                using (var command = new SqlCommand("DELETE FROM [dbo].[Properties]", connection))
+                {
+                    connection.Open();
+                    var rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected >= 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error in DeleteAllProperties: {ex.Message}");
+                throw;
+            }
+        }
     }
 }
 
